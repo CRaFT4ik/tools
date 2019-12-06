@@ -29,7 +29,7 @@ public class Log
 
     public static void debug(Object message)
     {
-        debug((message != null) ? message.toString() : null, "", (Object) null);
+        debug((message != null) ? message.toString() : null, "");
     }
 
     public static void debug(String separator, Object... objects)
@@ -59,7 +59,7 @@ public class Log
 
     public static void out(Object message)
     {
-        out((message != null) ? message.toString() : null, "", (Object) null);
+        out((message != null) ? message.toString() : null, "");
     }
 
     public static void out(String separator, Object... objects)
@@ -89,7 +89,7 @@ public class Log
 
     public static void warn(Object message)
     {
-        warn((message != null) ? message.toString() : null, "", (Object) null);
+        warn((message != null) ? message.toString() : null, "");
     }
 
     public static void warn(String separator, Object... objects)
@@ -119,7 +119,7 @@ public class Log
 
     public static void err(Object message)
     {
-        err((message != null) ? message.toString() : null, "", (Object) null);
+        err((message != null) ? message.toString() : null, "");
     }
 
     public static void err(String separator, Object... objects)
@@ -149,7 +149,7 @@ public class Log
 
     public static void fatal(Object message)
     {
-        fatal((message != null) ? message.toString() : null, "", (Object) null);
+        fatal((message != null) ? message.toString() : null, "");
     }
 
     public static void fatal(String separator, Object... objects)
