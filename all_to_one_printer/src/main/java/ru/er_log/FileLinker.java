@@ -59,7 +59,7 @@ public class FileLinker
             return false;
         }
 
-        if (!output.getParentFile().exists())
+        if (output.getParentFile() != null && !output.getParentFile().exists())
             output.getParentFile().mkdirs();
 
         if (!output.exists())
