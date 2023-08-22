@@ -2,7 +2,7 @@
 
 ###
 ### Автоматически выполняет обновление и переустановку модуля связи.
-### git clone https://github.com/lwfinger/rtw89.git -b v5
+### @author Eldar Timraleev
 ###
 
 WIFI_DELAY=12
@@ -19,8 +19,9 @@ function wait_any_key {
 }
 
 function make_install {
-    echo " - Unloading rtw89pci module..."
-    sudo modprobe -r rtw89pci
+    echo " - Unloading rtw_8852ae module..."
+    sudo modprobe -rv rtw_8852ae
+    sudo modprobe -rv rtw_core
  
     echo " - Compiling the code..."
     make
@@ -28,11 +29,12 @@ function make_install {
     echo " - Installing..."
     sudo make install
     
-    echo " - Loading rtw89pci module to kernel..."
-    sudo modprobe rtw89pci
+    echo " - Loading rtw_8852ae module to kernel..."
+    sudo modprobe -v rtw_8852ae
 }
 
 echo -e "- - -\nStage 1 of 3: compilation and installing old code\n- - -\n"
+cd repo
 make_install
 
 echo -e "- - -\nStage 2 of 3: updating the code\n- - -\n"
@@ -40,7 +42,9 @@ echo "Please, press any key when WiFi becomes avalible."
 echo "It will be done automatically after $WIFI_DELAY seconds."
 wait_any_key; echo -e "\n"
 
+make clean
 git pull
 
 echo -e "- - -\nStage 3 of 3: compilation and installing new code\n- - -\n"
 make_install
+cd ../

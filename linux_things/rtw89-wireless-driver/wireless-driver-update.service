@@ -1,0 +1,18 @@
+[Unit]
+Description=Updates wireless driver after each kernel update, https://github.com/lwfinger/rtw89
+
+# Note that StartLimitInterval must be greater than RestartSec * StartLimitBurst,
+# otherwise the service will be restarted indefinitely
+StartLimitInterval=20
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/rtw89/autoupdate
+ExecStart=/home/rtw89/autoupdate/autoupdate.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target 
