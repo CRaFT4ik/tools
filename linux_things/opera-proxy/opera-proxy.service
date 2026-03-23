@@ -1,5 +1,5 @@
 [Unit]
-Description=Opera proxy, https://github.com/Snawoot/opera-proxy
+Description=Opera proxy, https://github.com/Alexey71/opera-proxy/
 Wants=network-online.target
 After=syslog.target network.target nss-lookup.target
 

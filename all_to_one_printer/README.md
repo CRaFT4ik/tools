@@ -1,11 +1,12 @@
 # All To One Printer
 
-Prints the contents of all files by the specified mask in the specified directory and subdirectories to a new destination file.
+CLI-утилита, которая собирает содержимое всех файлов по заданной маске в указанной директории (включая подпапки) в один выходной файл.
 
 ```
-usage: java -jar "alltooneprinter.jar" [args...]
- -d,--directory <arg>   scanning directory
- -m,--mask <arg>        file mask, glob pattern (see for details:
-                        https://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#glob)
- -o,--output <arg>      output path with filename
+java -jar "alltooneprinter.jar" [args...]
+ -d,--directory <arg>   директория для сканирования
+ -m,--mask <arg>        маска файлов, glob-паттерн
+ -o,--output <arg>      путь к выходному файлу
 ```
+
+Java 8+. Сборка через Gradle (`./gradlew shadowJar`).
